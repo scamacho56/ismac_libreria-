@@ -9,17 +9,17 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Component
-@Entity
-@Table(name = "factura_detalle")
+//@Component
+//@Entity
+//@Table(name = "factura_detalle")
 public class Factura_detalle {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_factura_detalle")
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Column(name = "id_factura_detalle")
 	private int idFacturadetalle;
-	@Column(name = "cantidad")
+	//@Column(name = "cantidad")
 	private int cantidad;
-	@Column(name = "subtotal")
+	//@Column(name = "subtotal")
 	private double subtotal;
 	//@Column(name = "id_factura")
 	private int idFactura;

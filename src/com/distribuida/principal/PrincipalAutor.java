@@ -24,7 +24,6 @@ public class PrincipalAutor {
 			System.out.println(item.toString());
 		});
 		context.close();
-		
 	}
 
 }
