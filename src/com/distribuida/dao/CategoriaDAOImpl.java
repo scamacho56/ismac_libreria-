@@ -9,10 +9,12 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.distribuida.entities.Cliente;
+import com.distribuida.entities.Categoria;
+import com.distribuida.entities.Categoria;
+import com.distribuida.entities.Categoria;
 
 @Repository
-public class ClienteDAOImpl implements ClienteDAO {
+public class CategoriaDAOImpl implements CategoriaDAO {
 
 	
 	@Autowired
@@ -27,28 +29,28 @@ public class ClienteDAOImpl implements ClienteDAO {
 	
 	@Override
 	@Transactional
-	public List<Cliente>findAll() {
+	public List<Categoria> findAll() {
 		// TODO Auto-generated method stub
 		 Session session = sessionFactory.getCurrentSession();
-		 return session.createQuery("from Cliente", Cliente.class).getResultList();
+		 return session.createQuery("from Categoria", Categoria.class).getResultList();
 		 
 
 	}
 
 	@Override
-	public Cliente findOne(int id) {
+	public Categoria findOne(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void add(Cliente cliente) {
+	public void add(Categoria categoria ) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void up(Cliente cliente) {
+	public void up(Categoria categoria) {
 		// TODO Auto-generated method stub
 
 	}
