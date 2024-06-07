@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.distribuida.entities.Categoria;
-import com.distribuida.entities.Categoria;
-import com.distribuida.entities.Categoria;
 
 @Repository
 public class CategoriaDAOImpl implements CategoriaDAO {

@@ -1,6 +1,6 @@
 package com.distribuida.entities;
 
-import javax.annotation.Generated;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -100,5 +100,14 @@ public String getCorreo() {
 public void setCorreo(String correo) {
 	this.correo = correo;
 }
+
+@Override
+public String toString() {
+	return "Autor [idAutor=" + idAutor + ", nombre=" + nombre + ", apellido=" + apellido + ", pais=" + pais
+			+ ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + "]";
+}
+
+
+
 
 }

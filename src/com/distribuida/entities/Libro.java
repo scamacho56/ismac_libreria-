@@ -2,36 +2,62 @@ package com.distribuida.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name = "libro")
 public class Libro {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column (name="id_libro")	
 	private int idLibro;
+	@Column (name="titulo")
 	private int titulo;
+	@Column (name="editorial")
 	private int editorial;
+	@Column (name="num_paginas")
 	private int num_paginas;
+	@Column (name="edicion")
 	private int edicion;
+	@Column (name="idioma")
 	private int idioma;
+	@Column (name="fecha_publicacion")
 	private  Date fech_publicacion;
+	@Column (name="descripcion")
 	private int descripcion;
+	@Column (name="tipo_pasta")
 	private int tipo_pasta;
+	@Column (name="ISBN")
 	private int isbn;
+	@Column (name="num_ejemplares")
 	private int num_ejemplares;
+	@Column (name="portada")
 	private int portada;
+	@Column (name="presentacion")
 	private int presentacion;
+	@Column (name="precio")
 	private double precio;
+	//@Column (name="id_categoria")
 	private int idCategoria;
+	//@Column (name="id_autor")
 	private int idAutor;
 	
 	
-	private Libro() {}
+	public Libro() {}
 
 
 	public Libro(int idLibro, int titulo, int editorial, int num_paginas, int edicion, int idioma,
 			Date fech_publicacion, int descripcion, int tipo_pasta, int isbn, int num_ejemplares, int portada,
 			int presentacion, double precio, int idCategoria, int idAutor) {
-		super();
+		
 		this.idLibro = idLibro;
 		this.titulo = titulo;
 		this.editorial = editorial;

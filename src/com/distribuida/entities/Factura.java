@@ -2,40 +2,33 @@ package com.distribuida.entities;
 
 import java.util.Date;
 
-import javax.annotation.Generated;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
 
-@Component
-@Entity
-@Table(name = "factura")
+
+//@Component
+//@Entity
                 
 
 public class Factura {
 // Atributos
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name="id_factura")
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Column (name="id_factura")
 	private int idFactura;
-	@Column (name="num_factura")
+	//@Column (name="num_factura")
 	private String num_factura;
-	@Column (name="fecha")
+	//@Column (name="fecha")
 	private Date fecha;
-	@Column (name="total_neto")
+	//@Column (name="total_neto")
 	private double  total_neto;
-	@Column (name="iva")
+	//@Column (name="iva")
 	private double iva;
-	@Column (name="total")
+	//@Column (name="total")
 	private double total;
+	//@Column (name="id_cliente")
+	//private int idCliente;
 	
-	
-	private Cliente cliente;
+
 	
 	
 	
@@ -106,20 +99,29 @@ public class Factura {
 		this.total = total;
 	}
 
-	
-	public Cliente getCliente() {
-		return cliente;
+
+
+
+	public Factura(int idFactura, String num_factura, Date fecha, double total_neto, double iva, double total) {
+		super();
+		this.idFactura = idFactura;
+		this.num_factura = num_factura;
+		this.fecha = fecha;
+		this.total_neto = total_neto;
+		this.iva = iva;
+		this.total = total;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+
+
 
 	@Override
 	public String toString() {
 		return "Factura [idFactura=" + idFactura + ", num_factura=" + num_factura + ", fecha=" + fecha + ", total_neto="
-				+ total_neto + ", iva=" + iva + ", total=" + total + ", cliente=" + cliente + "]";
+				+ total_neto + ", iva=" + iva + ", total=" + total + "]";
 	}
+
+	
 
 	
 	}
