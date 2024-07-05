@@ -1,7 +1,5 @@
 package com.distribuida.principal;
 
-import java.util.List;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.distribuida.dao.ClienteDAO;
@@ -17,9 +15,27 @@ public class PrincipalCliente {
 		
 		ClienteDAO clienteDAO = context.getBean("clienteDAOImpl", ClienteDAO.class);
 		
-		List<Cliente> clientes = clienteDAO.findAll();
 		
-		clientes.forEach(item -> {
+		
+		//CRUD:CREATE,READ,UPDATE,DELETE
+		//ADD
+		Cliente cliente = new Cliente(0, "1234566789", "juan" , "taipe", "av.por ahi...", "09876543432", "jtaipeQgmail.com");
+		clienteDAO.add(cliente);
+		
+		//up
+		Cliente cliente2 = new Cliente(1, "1234566789", "juan" , "taipe2", "av.por ahi...", "09876543432", "jtaipeQgmail.com");
+		clienteDAO.up(cliente2);
+		
+		//del
+		//clienteDAO.del(1);
+		
+		//findOne
+		
+		//findAll
+		
+		//List<Cliente> clientes = clienteDAO.findAll();
+		
+		clienteDAO.findAll().forEach(item -> {
 			System.out.println(item.toString());
 		});
 		context.close();

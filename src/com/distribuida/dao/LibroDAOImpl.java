@@ -9,52 +9,57 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.distribuida.entities.Autor;
 
-
+import com.distribuida.entities.Libro;
 
 @Repository
-public class AutorDAOImpl implements AutorDAO {
-
+public class LibroDAOImpl implements LibroDAO {
 
 	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	@Transactional
-	public List<Autor>findAll() {
+	public List<Libro>findAll() {
 		// TODO Auto-generated method stub
 		 Session session = sessionFactory.getCurrentSession();
-		 return session.createQuery("from Autor", Autor.class).getResultList();
+		 return session.createQuery("from Libro", Libro.class).getResultList();
 		 
 
 	}
 
 	@Override
 	@Transactional
-	public Autor findOne(int id) {
+	public Libro findOne(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		return session .get(Autor.class, id);
+		return session .get(Libro.class, id);
 	
 	}
 
 	@Override
 	@Transactional
-	public void add(Autor autor) {
+	public void add(Libro libro) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(autor);
+		session.saveOrUpdate(libro);
 
 	}
 
 	@Override
 	@Transactional
-	public void up(Autor autor) {
+	public void up(Libro libro) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(autor);
+        session.saveOrUpdate(libro);
 	}
 
 	@Override

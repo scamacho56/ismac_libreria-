@@ -9,52 +9,50 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.distribuida.entities.Autor;
-
-
+import com.distribuida.entities.Productos;
 
 @Repository
-public class AutorDAOImpl implements AutorDAO {
-
+public class ProductosDAOImpl implements ProductosDAO {
 
 	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	
+	
 	@Override
 	@Transactional
-	public List<Autor>findAll() {
+	public List<Productos>findAll() {
 		// TODO Auto-generated method stub
 		 Session session = sessionFactory.getCurrentSession();
-		 return session.createQuery("from Autor", Autor.class).getResultList();
+		 return session.createQuery("from Productos", Productos.class).getResultList();
 		 
 
 	}
 
 	@Override
 	@Transactional
-	public Autor findOne(int id) {
+	public Productos findOne(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		return session .get(Autor.class, id);
-	
+		return session .get(Productos.class, id);
 	}
 
 	@Override
 	@Transactional
-	public void add(Autor autor) {
+	public void add(Productos productos) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(autor);
+		session.saveOrUpdate(productos);
 
 	}
 
 	@Override
 	@Transactional
-	public void up(Autor autor) {
+	public void up(Productos productos) {
 		// TODO Auto-generated method stub
-		Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(autor);
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(productos);
 	}
 
 	@Override
@@ -63,6 +61,7 @@ public class AutorDAOImpl implements AutorDAO {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
+
 	}
 
 }

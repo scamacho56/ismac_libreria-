@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.distribuida.entities.Categoria;
 
+
 @Repository
 public class CategoriaDAOImpl implements CategoriaDAO {
 
@@ -24,10 +25,9 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	
 	
 	
-	
 	@Override
 	@Transactional
-	public List<Categoria> findAll() {
+	public List<Categoria>findAll() {
 		// TODO Auto-generated method stub
 		 Session session = sessionFactory.getCurrentSession();
 		 return session.createQuery("from Categoria", Categoria.class).getResultList();
@@ -36,27 +36,38 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	}
 
 	@Override
+	@Transactional
 	public Categoria findOne(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		return session .get(Categoria.class, id);
+	
 	}
 
 	@Override
-	public void add(Categoria categoria ) {
+	@Transactional
+	public void add(Categoria categoria) {
 		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(categoria);
 
 	}
 
 	@Override
+	@Transactional
 	public void up(Categoria categoria) {
 		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(categoria);
 	}
 
 	@Override
+	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(findOne(id));
 	}
+
 
 }
