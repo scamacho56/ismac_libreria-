@@ -50,26 +50,30 @@ public class Libro {
 	private int presentacion;
 	@Column(name = "precio")
 	private double precio;
+	@Column(name = "id_categoria")
+	private int idCategoria;
+	@Column(name = "id_autor")
+	private int idAutor;
 
 	public Libro() {}
 
 	/**
 	 * @param idLibro
-	 * @param titulo
-	 * @param editorial
+	 * @param titulo1
+	 * @param editorial1
 	 * @param numPaginas
-	 * @param edicion
-	 * @param idioma
+	 * @param edicion1
+	 * @param idioma1
 	 * @param fechaPublicacion
-	 * @param descripcion
-	 * @param tipoPasta
-	 * @param ISBN
+	 * @param descripcion1
+	 * @param tipoPasta1
+	 * @param ISBN1
 	 * @param numEjemplares
-	 * @param portada
-	 * @param presentacion
-	 *  @param precio
-	 *   @param categoria
-	 *    @param autor
+	 * @param portada1
+	 * @param presentacion1
+	 *  @param precio1
+	 *   @param idCategoria
+	 *    @param idAutor
 	 */
 	
 	
@@ -101,6 +105,29 @@ public class Libro {
 		this.presentacion = presentacion;
 		this.precio = precio;
 
+	}
+
+	public Libro(int idLibro, int titulo, int editorial, int num_paginas, int edicion, int idioma,
+			Date fech_publicacion, int descripcion, int tipo_pasta, int isbn, int num_ejemplares, int portada,
+			int presentacion, double precio, int idCategoria, int idAutor, Cliente cliente) {
+		super();
+		this.idLibro = idLibro;
+		this.titulo = titulo;
+		this.editorial = editorial;
+		this.num_paginas = num_paginas;
+		this.edicion = edicion;
+		this.idioma = idioma;
+		this.fech_publicacion = fech_publicacion;
+		this.descripcion = descripcion;
+		this.tipo_pasta = tipo_pasta;
+		this.isbn = isbn;
+		this.num_ejemplares = num_ejemplares;
+		this.portada = portada;
+		this.presentacion = presentacion;
+		this.precio = precio;
+		this.idCategoria = idCategoria;
+		this.idAutor = idAutor;
+		this.cliente = cliente;
 	}
 
 	public int getIdLibro() {
@@ -215,6 +242,13 @@ public class Libro {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
+	}
 
 	@Override
 	public String toString() {
@@ -222,7 +256,7 @@ public class Libro {
 				+ num_paginas + ", edicion=" + edicion + ", idioma=" + idioma + ", fech_publicacion=" + fech_publicacion
 				+ ", descripcion=" + descripcion + ", tipo_pasta=" + tipo_pasta + ", isbn=" + isbn + ", num_ejemplares="
 				+ num_ejemplares + ", portada=" + portada + ", presentacion=" + presentacion + ", precio=" + precio
-				+ ", cliente=" + cliente + "]";
+				+ ", idCategoria=" + idCategoria + ", idAutor=" + idAutor + ", cliente=" + cliente + "]";
 	}
 
 }

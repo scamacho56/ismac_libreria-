@@ -50,15 +50,20 @@ public class LibroController {
 		Libro libro = libroDAO.findOne(idLibro);	
 		modelMap.addAttribute("libro", libro);
 	}
+	modelMap.addAttribute("autores", autorDAO.findAll());
+	modelMap.addAttribute("categorias", categoriaDAO.findAll());
+	
 	if(opcion == 1) return "add-libros";
 	else return "del-libros";
 	
 	}
+	
+	
 	@PostMapping("/add")
 	private String add(@RequestParam("idLibro") @Nullable Integer idLibro
 			          ,@RequestParam("titutlo") @Nullable String titulo
 			          ,@RequestParam("editorial") @Nullable String editorial
-			          ,@RequestParam("numPaginas") @Nullable String numPaginas
+			          ,@RequestParam("numPaginas") @Nullable Integer numPaginas
 			          ,@RequestParam("edicion") @Nullable String edicion
 			          ,@RequestParam("idioma") @Nullable String idioma
 			          ,@RequestParam("fechaPublicacion") @Nullable Date fechaPublicacion
@@ -69,13 +74,13 @@ public class LibroController {
 			          ,@RequestParam("portada") @Nullable String portada
 			          ,@RequestParam("presentacion") @Nullable String presentacion
 			          ,@RequestParam("precio") @Nullable Double precio
-			          ,@RequestParam("id_categoria") @Nullable Integer id_categoria
-			          ,@RequestParam("id_autor") @Nullable Integer id_autor
+			          ,@RequestParam("id_categoria") @Nullable Integer idCategoria
+			          ,@RequestParam("id_autor") @Nullable Integer idAutor
 			) {
 		if(idLibro == null) {
-			Libro libro = new Libro(0, titulo, editorial, numPaginas, edicion, idioma, fechaPublicacion,descripcion, tipoPasta, ISBN, numEjemplares, portada, presentacion, precio);
-			libro.setCategoria(categoriaDAO.findOne(id_categoria));
-			libro.setAutor(autorDAO.findOne(id_autor));
+			Libro libro = new Libro(0, titulo1, editorial1,22, edicion1, idioma1, new Date() ,descripcion1, tipoPasta1, ISBN1,22, portada1, presentacion1, 22.22);
+			libro.setCategoria(categoriaDAO.findOne(idCategoria));
+			libro.setAutor(autorDAO.findOne(idAutor));
 			
 			libroDAO.add(libro);
 			

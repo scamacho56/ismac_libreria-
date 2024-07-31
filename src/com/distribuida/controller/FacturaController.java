@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.distribuida.dao.FacturaDAO;
+import com.distribuida.dao.Factura_detalleDAO;
 import com.distribuida.entities.Factura_detalle;
 
 @Controller
@@ -18,7 +19,7 @@ public class FacturaController {
 private FacturaDAO facturaDAO;
 
 @Autowired
-private Factura_detalle factura_detalleDAO;
+private Factura_detalleDAO  factura_detalleDAO;
 	
 	@GetMapping("/findAll")
 	public String findAll(ModelMap modelMap) {
