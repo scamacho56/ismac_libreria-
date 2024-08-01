@@ -107,9 +107,11 @@ public class Libro {
 
 	}
 
+	
+
 	public Libro(int idLibro, int titulo, int editorial, int num_paginas, int edicion, int idioma,
 			Date fech_publicacion, int descripcion, int tipo_pasta, int isbn, int num_ejemplares, int portada,
-			int presentacion, double precio, int idCategoria, int idAutor, Cliente cliente) {
+			int presentacion, double precio, int idCategoria, int idAutor) {
 		super();
 		this.idLibro = idLibro;
 		this.titulo = titulo;
@@ -127,8 +129,11 @@ public class Libro {
 		this.precio = precio;
 		this.idCategoria = idCategoria;
 		this.idAutor = idAutor;
-		this.cliente = cliente;
 	}
+
+
+
+	
 
 	public int getIdLibro() {
 		return idLibro;
@@ -250,13 +255,25 @@ public class Libro {
 		this.idCategoria = idCategoria;
 	}
 
+	public int getIdAutor() {
+		return idAutor;
+	}
+
+
+
+	public void setIdAutor(int idAutor) {
+		this.idAutor = idAutor;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Libro [idLibro=" + idLibro + ", titulo=" + titulo + ", editorial=" + editorial + ", num_paginas="
 				+ num_paginas + ", edicion=" + edicion + ", idioma=" + idioma + ", fech_publicacion=" + fech_publicacion
 				+ ", descripcion=" + descripcion + ", tipo_pasta=" + tipo_pasta + ", isbn=" + isbn + ", num_ejemplares="
 				+ num_ejemplares + ", portada=" + portada + ", presentacion=" + presentacion + ", precio=" + precio
-				+ ", idCategoria=" + idCategoria + ", idAutor=" + idAutor + ", cliente=" + cliente + "]";
+				+ ", idCategoria=" + idCategoria + ", idAutor=" + idAutor + "]";
 	}
 
 }

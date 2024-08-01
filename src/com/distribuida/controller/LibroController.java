@@ -61,35 +61,43 @@ public class LibroController {
 	
 	@PostMapping("/add")
 	private String add(@RequestParam("idLibro") @Nullable Integer idLibro
-			          ,@RequestParam("titutlo") @Nullable String titulo
-			          ,@RequestParam("editorial") @Nullable String editorial
+			          ,@RequestParam("titutlo") @Nullable String titulo1
+			          ,@RequestParam("editorial") @Nullable String editorial1
 			          ,@RequestParam("numPaginas") @Nullable Integer numPaginas
-			          ,@RequestParam("edicion") @Nullable String edicion
-			          ,@RequestParam("idioma") @Nullable String idioma
+			          ,@RequestParam("edicion") @Nullable String edicion1
+			          ,@RequestParam("idioma") @Nullable String idioma1
 			          ,@RequestParam("fechaPublicacion") @Nullable Date fechaPublicacion
-			          ,@RequestParam("descripcion") @Nullable String descripcion
-			          ,@RequestParam("tipoPasta") @Nullable String tipoPasta
-			          ,@RequestParam("ISBN") @Nullable String ISBN
+			          ,@RequestParam("descripcion") @Nullable String descripcion1
+			          ,@RequestParam("tipoPasta") @Nullable String tipoPasta1
+			          ,@RequestParam("ISBN") @Nullable String ISBN1
 			          ,@RequestParam("numEjemplares") @Nullable Integer numEjemplares
-			          ,@RequestParam("portada") @Nullable String portada
-			          ,@RequestParam("presentacion") @Nullable String presentacion
-			          ,@RequestParam("precio") @Nullable Double precio
+			          ,@RequestParam("portada") @Nullable String portada1
+			          ,@RequestParam("presentacion") @Nullable String presentacion1
+			          ,@RequestParam("precio") @Nullable Double precio1
 			          ,@RequestParam("id_categoria") @Nullable Integer idCategoria
 			          ,@RequestParam("id_autor") @Nullable Integer idAutor
 			) {
-		if(idLibro == null) {
-			Libro libro = new Libro(0, titulo1, editorial1,22, edicion1, idioma1, new Date() ,descripcion1, tipoPasta1, ISBN1,22, portada1, presentacion1, 22.22);
-			libro.setCategoria(categoriaDAO.findOne(idCategoria));
-			libro.setAutor(autorDAO.findOne(idAutor));
-			
-			libroDAO.add(libro);
-			
+		if (idLibro == null) {
+		    Libro libro = new Libro(0, titulo1, editorial1, 22, edicion1, idioma1, new Date(), descripcion1, tipoPasta1, ISBN1, 22, portada1, presentacion1, precio);
+		    libro.setCategoria(categoriaDAO.findOne(idCategoria));
+		    libro.setAutor(autorDAO.findOne(idAutor));
+		    libroDAO.add(libro);
+		} else {
+		    Libro libro = new Libro(idLibro, titulo1, editorial1, 22, edicion1, idioma1, new Date(), descripcion1, tipoPasta1, ISBN1, 22, portada1, presentacion1, precio);
+		    libro.setCategoria(categoriaDAO.findOne(idCategoria));
+		    libro.setAutor(autorDAO.findOne(idAutor));
+		    libroDAO.add(libro);
 		}
+		return "redirect:/libros/listar-libros";
+
+			
+		
 		
 		return "redirect:/libros/listar-libros";
 	}
 	@GetMapping("/del")
 	public String del(@RequestParam("idLibro") @Nullable Integer idLibro ) {
+		libroDAO.del(idLibro);
 		return "redirect:/libros/listar-libros";
 	}
 }
